@@ -16,6 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+var locationField;
 var app = {
     // Application Constructor
     initialize: function() {
@@ -47,6 +48,7 @@ var app = {
         console.log('Received Event: ' + id);
         deviceProperty(id);
         getLocation();
+        watchLocation();
     }
 };
 
@@ -76,24 +78,30 @@ function showAlert(message) {
         );
     }
 function getLocation(){
-    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    locationField = "geolocation";
+    navigator.geolocation.getCurrentPosition(onSuccess, onError, { enableHighAccuracy: true });
 }
 
-    function onSuccess(position) {
-        var element = document.getElementById('geolocation');
-        element.innerHTML = 'Latitude: '           + position.coords.latitude              + ', ' +
-                            'Longitude: '          + position.coords.longitude             + ', ' +
-                            'Altitude: '           + position.coords.altitude              + ', ' +
-                            'Accuracy: '           + position.coords.accuracy              + ', ' +
-                            'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + ', ' +
-                            'Heading: '            + position.coords.heading               + ', ' +
-                            'Speed: '              + position.coords.speed                 + ', ' +
-                            'Timestamp: '          + position.timestamp                    + ', ';
-    }
+function watchLocation(){
+    locationField = "watchlocation";
+    navigator.geolocation.watchPosition(onSuccess, onError, { enableHighAccuracy: true });
+}
 
-    // onError Callback receives a PositionError object
-    //
-    function onError(error) {
-        alert('code: '    + error.code    + '\n' +
-              'message: ' + error.message + '\n');
-    }
+function onSuccess(position) {
+    var element = document.getElementById(locationField);
+    element.innerHTML = 'Latitude: '           + position.coords.latitude              + ', ' +
+                        'Longitude: '          + position.coords.longitude             + ', ' +
+                        'Altitude: '           + position.coords.altitude              + ', ' +
+                        'Accuracy: '           + position.coords.accuracy              + ', ' +
+                        'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + ', ' +
+                        'Heading: '            + position.coords.heading               + ', ' +
+                        'Speed: '              + position.coords.speed                 + ', ' +
+                        'Timestamp: '          + position.timestamp                    + ', ';
+}
+
+// onError Callback receives a PositionError object
+//
+function onError(error) {
+    alert('code: '    + error.code    + '\n' +
+          'message: ' + error.message + '\n');
+}
