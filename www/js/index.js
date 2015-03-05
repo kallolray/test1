@@ -45,12 +45,13 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-        test1(id);
+        deviceProperty(id);
+        getLocation();
     }
 };
 
 app.initialize();
-function test1(id){
+function deviceProperty(id){
     showAlert('showAlert' + id);
     alert('test' + id);
      var element = document.getElementById('deviceProperties');
