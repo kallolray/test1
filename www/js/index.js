@@ -54,11 +54,11 @@ function test1(id){
     showAlert('showAlert' + id);
     alert('test' + id);
      var element = document.getElementById('deviceProperties');
-        element.innerHTML = 'Device Model: '    + device.model    + '<br />' +
-                            'Device Cordova: '  + device.cordova  + '<br />' +
-                            'Device Platform: ' + device.platform + '<br />' +
-                            'Device UUID: '     + device.uuid     + '<br />' +
-                            'Device Version: '  + device.version  + '<br />';
+        element.innerHTML = 'Device Model: '    + device.model    + ', ' +
+                            'Device Cordova: '  + device.cordova  + ', ' +
+                            'Device Platform: ' + device.platform + ', ' +
+                            'Device UUID: '     + device.uuid     + ', ' +
+                            'Device Version: '  + device.version  + ', ';
 
 }
 // alert dialog dismissed
@@ -73,4 +73,26 @@ function showAlert(message) {
             'TEST',            // title
             'Done'                  // buttonName
         );
+    }
+function getLocation(){
+    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+}
+
+    function onSuccess(position) {
+        var element = document.getElementById('geolocation');
+        element.innerHTML = 'Latitude: '           + position.coords.latitude              + ', ' +
+                            'Longitude: '          + position.coords.longitude             + ', ' +
+                            'Altitude: '           + position.coords.altitude              + ', ' +
+                            'Accuracy: '           + position.coords.accuracy              + ', ' +
+                            'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + ', ' +
+                            'Heading: '            + position.coords.heading               + ', ' +
+                            'Speed: '              + position.coords.speed                 + ', ' +
+                            'Timestamp: '          + position.timestamp                    + ', ';
+    }
+
+    // onError Callback receives a PositionError object
+    //
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
     }
