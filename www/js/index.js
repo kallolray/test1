@@ -45,8 +45,11 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-        alert('Received Event: ' + id);
+        test1(id);
     }
 };
 
 app.initialize();
+function test1(id){
+    alert('Received Event: ' + id);
+}
