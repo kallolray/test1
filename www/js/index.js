@@ -51,26 +51,26 @@ var app = {
 
 app.initialize();
 function test1(id){
-    showAlert();
+    showAlert('showAlert' + id);
     alert('test' + id);
-    /* var element = document.getElementById('deviceProperties');
+     var element = document.getElementById('deviceProperties');
         element.innerHTML = 'Device Model: '    + device.model    + '<br />' +
                             'Device Cordova: '  + device.cordova  + '<br />' +
                             'Device Platform: ' + device.platform + '<br />' +
                             'Device UUID: '     + device.uuid     + '<br />' +
                             'Device Version: '  + device.version  + '<br />';
-    */
+
 }
 // alert dialog dismissed
 function alertDismissed() {
     // do something
 }
 
-function showAlert() {
+function showAlert(message) {
         navigator.notification.alert(
-            'You are the winner!',  // message
+            message,  // message
             alertDismissed,         // callback
-            'Game Over',            // title
+            'TEST',            // title
             'Done'                  // buttonName
         );
     }
