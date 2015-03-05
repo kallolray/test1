@@ -51,7 +51,7 @@ var app = {
 
 app.initialize();
 function test1(id){
-    alert('test' + id);
+    alert('test' + id + device.model);
     var element = document.getElementById('deviceProperties');
         element.innerHTML = 'Device Model: '    + device.model    + '<br />' +
                             'Device Cordova: '  + device.cordova  + '<br />' +
