@@ -51,6 +51,7 @@ var app = {
 
 app.initialize();
 function test1(id){
+    showAlert();
     alert('test' + id + device.model);
     var element = document.getElementById('deviceProperties');
         element.innerHTML = 'Device Model: '    + device.model    + '<br />' +
@@ -59,3 +60,12 @@ function test1(id){
                             'Device UUID: '     + device.uuid     + '<br />' +
                             'Device Version: '  + device.version  + '<br />';
 }
+
+function showAlert() {
+        navigator.notification.alert(
+            'You are the winner!',  // message
+            null,         // callback
+            'Game Over',            // title
+            'Done'                  // buttonName
+        );
+    }
