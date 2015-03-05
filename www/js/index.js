@@ -51,5 +51,5 @@ var app = {
 
 app.initialize();
 function test1(id){
-    alert('Received Event: ' + id);
+    alert('test' + id);
 }
