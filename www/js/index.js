@@ -79,12 +79,12 @@ function showAlert(message) {
     }
 function getLocation(){
     locationField = "geolocation";
-    navigator.geolocation.getCurrentPosition(onSuccess, onError, { enableHighAccuracy: true });
+    navigator.geolocation.getCurrentPosition(onSuccess, onError, { enableHighAccuracy: true, timeout: 30000 });
 }
 
 function watchLocation(){
     locationField = "watchlocation";
-    navigator.geolocation.watchPosition(onSuccess, onError, { enableHighAccuracy: true });
+    navigator.geolocation.watchPosition(onSuccess, onError, { enableHighAccuracy: true, timeout: 30000 });
 }
 
 function onSuccess(position) {
