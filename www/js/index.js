@@ -52,7 +52,7 @@ var app = {
 app.initialize();
 function test1(id){
     showAlert();
-    alert('test' + id + device.model);
+    alert('test' + id);
     var element = document.getElementById('deviceProperties');
         element.innerHTML = 'Device Model: '    + device.model    + '<br />' +
                             'Device Cordova: '  + device.cordova  + '<br />' +
@@ -60,11 +60,15 @@ function test1(id){
                             'Device UUID: '     + device.uuid     + '<br />' +
                             'Device Version: '  + device.version  + '<br />';
 }
+// alert dialog dismissed
+function alertDismissed() {
+    // do something
+}
 
 function showAlert() {
         navigator.notification.alert(
             'You are the winner!',  // message
-            null,         // callback
+            alertDismissed,         // callback
             'Game Over',            // title
             'Done'                  // buttonName
         );
