@@ -78,17 +78,23 @@ function showAlert(message) {
         );
     }
 function getLocation(){
-    locationField = "geolocation";
     navigator.geolocation.getCurrentPosition(onSuccess, onError, { enableHighAccuracy: true, timeout: 30000 });
 }
 
 function watchLocation(){
-    locationField = "watchlocation";
-    navigator.geolocation.watchPosition(onSuccess, onError, { enableHighAccuracy: true, timeout: 30000 });
+    navigator.geolocation.watchPosition(onSuccess2, onError, { enableHighAccuracy: true, timeout: 30000 });
+}
+function onSuccess2(position) {
+    var element = document.getElementById("watchlocation");
+    element.innerHTML = 'Latitude: '           + position.coords.latitude              + ', ' +
+                        'Longitude: '          + position.coords.longitude             + ', ' +
+                        'Accuracy: '           + position.coords.accuracy              + ', ' +
+                        'Timestamp: '          + position.timestamp                    + ', <br/ >' +
+                        element.innerHTML;
 }
 
 function onSuccess(position) {
-    var element = document.getElementById(locationField);
+    var element = document.getElementById("geolocation");
     element.innerHTML = 'Latitude: '           + position.coords.latitude              + ', ' +
                         'Longitude: '          + position.coords.longitude             + ', ' +
                         'Altitude: '           + position.coords.altitude              + ', ' +
