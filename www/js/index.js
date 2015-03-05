@@ -82,7 +82,7 @@ function getLocation(){
 }
 
 function watchLocation(){
-    var watchID = navigator.geolocation.watchPosition(onSuccess2, onError, { enableHighAccuracy: true, timeout: 5000 });
+    var watchID = navigator.geolocation.watchPosition(onSuccess2, function(){}, { enableHighAccuracy: true, timeout: 5000 });
 }
 function onSuccess2(position) {
     var element = document.getElementById("watchlocation");
