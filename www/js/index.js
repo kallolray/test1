@@ -78,11 +78,11 @@ function showAlert(message) {
         );
     }
 function getLocation(){
-    navigator.geolocation.getCurrentPosition(onSuccess, onError, { enableHighAccuracy: true, timeout: 30000 });
+    navigator.geolocation.getCurrentPosition(onSuccess, onError, { enableHighAccuracy: true});
 }
 
 function watchLocation(){
-    navigator.geolocation.watchPosition(onSuccess2, onError, { enableHighAccuracy: true, timeout: 30000 });
+    navigator.geolocation.watchPosition(onSuccess2, onError, { enableHighAccuracy: true, timeout: 5000 });
 }
 function onSuccess2(position) {
     var element = document.getElementById("watchlocation");
