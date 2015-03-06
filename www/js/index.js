@@ -257,7 +257,7 @@ function directoryReaderfail(error) {
 
 function dirReader(){
     // Get a directory reader
-    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, onFail);
+    window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, onFileSystemSuccess, onFail); //PERSISTENT
 }
 
 function onFileSystemSuccess(fileSystem) {
