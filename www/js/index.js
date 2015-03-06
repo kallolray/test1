@@ -244,7 +244,10 @@ function directoryReadersuccess(entries) {
             "File?: " + entries[i].isFile + ", " +
             "Directory?: " + entries[i].isDirectory + ", " +
             "Path: " + entries[i].fullPath + "<br>"
-
+        if (entries[i].isDirectory){
+            var directoryReader = fileSystem.root.createReader();
+            directoryReader.readEntries(directoryReadersuccess,directoryReaderfail);
+        }
     }
 }
 
