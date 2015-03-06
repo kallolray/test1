@@ -211,13 +211,13 @@ function captureError(error) {
 function captureAudio() {
     // Launch device audio recording application,
     // allowing user to capture up to 2 audio clips
-    navigator.device.capture.captureAudio(captureSuccess, captureError, {limit: 2});
+    //navigator.device.capture.captureAudio(captureSuccess, captureError);
 
     // Launch device camera application,
-    //navigator.device.capture.captureImage(captureSuccess, captureError, {limit: 2});
+    navigator.device.capture.captureImage(captureSuccess, captureError);
 
     // start video capture
-    //navigator.device.capture.captureVideo(captureSuccess, captureError, {limit:2});
+    //navigator.device.capture.captureVideo(captureSuccess, captureError);
 }
 
 function checkConnection() {
@@ -258,7 +258,7 @@ function directoryReaderfail(error) {
 function dirReader(){
     // Get a directory reader
     var store = cordova.file.dataDirectory;
-    alert(store);
+    document.getElementById("directoryList").innerHTML += "<br>" + store + "<br>";
     //window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, onFail); //PERSISTENT or TEMPORARY
     window.resolveLocalFileSystemURI(store, onFileSystemSuccess, onFail);
 }
