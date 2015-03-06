@@ -257,7 +257,9 @@ function directoryReaderfail(error) {
 
 function dirReader(){
     // Get a directory reader
-    window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, onFileSystemSuccess, onFail); //PERSISTENT
+    var store = cordova.file.dataDirectory;
+    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, onFail); //PERSISTENT or TEMPORARY
+    window.resolveLocalFileSystemURI(store, onFileSystemSuccess, onFail);
 }
 
 function onFileSystemSuccess(fileSystem) {
