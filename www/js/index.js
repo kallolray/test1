@@ -243,9 +243,9 @@ function directoryReadersuccess(entries) {
         element.innerHTML += "Name: " + entries[i].name + ", " +
             "File?: " + entries[i].isFile + ", " +
             "Directory?: " + entries[i].isDirectory + ", " +
-            "Path: " + entries[i].fullPath + "<br>"
+            "Path: " + entries[i].fullPath + "<br>";
         if (entries[i].isDirectory){
-            var directoryReader = fileSystem.root.createReader();
+            var directoryReader = entries[i].createReader();
             directoryReader.readEntries(directoryReadersuccess,directoryReaderfail);
         }
     }
