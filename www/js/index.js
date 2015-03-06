@@ -235,3 +235,27 @@ function checkConnection() {
 
     alert('Connection type: ' + states[networkState]);
 }
+
+function directoryReadersuccess(entries) {
+    var i,
+        element = document.getElementById("directoryList");
+    for (i=0; i<entries.length; i++) {
+        element.innerHTML += "Name: " + entries[i].name + ", " +
+            "File?: " + entries[i].isFile + ", " +
+            "Directory?: " + entries[i].isDirectory + ", " +
+            "Path: " + entries[i].fullPath + "<br>"
+
+    }
+}
+
+function directoryReaderfail(error) {
+    alert("Failed to list directory contents: " + error.code);
+}
+
+function dirReader(){
+    // Get a directory reader
+    var directoryReader = dirEntry.createReader();
+
+    // Get a list of all the entries in the directory
+    directoryReader.readEntries(directoryReadersuccess,directoryReaderfail);
+}
