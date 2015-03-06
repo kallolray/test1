@@ -212,4 +212,26 @@ function captureAudio() {
     // Launch device audio recording application,
     // allowing user to capture up to 2 audio clips
     navigator.device.capture.captureAudio(captureSuccess, captureError, {limit: 2});
+
+    // Launch device camera application,
+    //navigator.device.capture.captureImage(captureSuccess, captureError, {limit: 2});
+
+    // start video capture
+    //navigator.device.capture.captureVideo(captureSuccess, captureError, {limit:2});
+}
+
+function checkConnection() {
+    var networkState = navigator.connection.type;
+
+    var states = {};
+    states[Connection.UNKNOWN]  = 'Unknown connection';
+    states[Connection.ETHERNET] = 'Ethernet connection';
+    states[Connection.WIFI]     = 'WiFi connection';
+    states[Connection.CELL_2G]  = 'Cell 2G connection';
+    states[Connection.CELL_3G]  = 'Cell 3G connection';
+    states[Connection.CELL_4G]  = 'Cell 4G connection';
+    states[Connection.CELL]     = 'Cell generic connection';
+    states[Connection.NONE]     = 'No network connection';
+
+    alert('Connection type: ' + states[networkState]);
 }
