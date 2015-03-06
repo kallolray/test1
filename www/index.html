@@ -23,7 +23,11 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="msapplication-tap-highlight" content="no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+<!--
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+-->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, width=device-width, height=device-height/>
+
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>Hello World</title>
     </head>
@@ -39,12 +43,14 @@
             <p id="geolocation">Finding geolocation...</p>
             <p id="watchlocation">Watching geolocation...</p>
 
-            <button onclick="capturePhoto();">Capture Photo</button> <br>
-            <button onclick="capturePhotoEdit();">Capture Editable Photo</button> <br>
-            <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br>
-            <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br>
-            <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
-            <img style="display:none;" id="largeImage" src="" />
+            <button onclick="capturePhoto();">Capture Photo</button> <button onclick="capturePhotoEdit();">Capture Editable Photo</button>
+            <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button>
+            <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button> <br>
+            <img style="display:none;width:60px;height:60px;" id="smallImage" src="" /><br>
+            <img style="display:none;" id="largeImage" src="" /><br>
+            <button onclick="captureAudio();">Capture Audio</button> <button onclick="captureVideo();">Capture Video</button><br>
+            <p id="captureFile">Captured File properties...</p>
+
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
