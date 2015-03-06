@@ -254,7 +254,14 @@ function directoryReaderfail(error) {
 
 function dirReader(){
     // Get a directory reader
-    var directoryReader = dirEntry.createReader();
+    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, onFail);
+}
+
+function onFileSystemSuccess(fileSystem) {
+    var element = document.getElementById("directoryList");
+    element.innerHTML += "fileSystem.name:" + fileSystem.name + ", fileSystem.root.name : " + fileSystem.root.name + "<br>";
+
+    var directoryReader = fileSystem.root.createReader();
 
     // Get a list of all the entries in the directory
     directoryReader.readEntries(directoryReadersuccess,directoryReaderfail);
